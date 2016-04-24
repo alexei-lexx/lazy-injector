@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alexei-lexx/lazy-injector.svg?branch=master)](https://travis-ci.org/alexei-lexx/lazy-injector)
+
 # LazyInjector
 
 Use Lazy Injector to define dependencies and inject them into your code.

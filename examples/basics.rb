@@ -1,7 +1,7 @@
 require 'lazy_injector'
 require 'ostruct'
 
-module Dependencies
+module Parts
   include LazyInjector
 
   register(:wheel_factory) { Struct.new(:axle, :side) }
@@ -16,6 +16,11 @@ module Dependencies
   end
 
   register(:engine) { OpenStruct.new }
+end
+
+module Dependencies
+  include LazyInjector
+  include Parts
 
   register :car do
     OpenStruct.new(engine: engine, wheels: wheels)

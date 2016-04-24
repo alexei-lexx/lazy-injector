@@ -44,4 +44,29 @@ describe LazyInjector do
       end
     end
   end
+
+  context 'when dependencies are nested' do
+    before do
+      stub_const 'A', Module.new
+      module A
+        include LazyInjector
+
+        register(:test_a) { 1 }
+      end
+
+      stub_const 'B', Module.new
+      module B
+        include LazyInjector
+        include A
+
+        register(:test_b) { test_a + 1 }
+      end
+    end
+
+    let(:tester) { Object.new.extend B }
+
+    it 'makes all dependencies available in the tester' do
+      expect(tester.test_b).to eq 2
+    end
+  end
 end

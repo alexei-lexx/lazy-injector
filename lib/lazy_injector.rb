@@ -6,14 +6,14 @@ module LazyInjector
   end
 
   module ClassMethods
-    def register(name)
+    def register(name, &block)
       define_method name do
         @lazy_injector ||= {}
 
         if @lazy_injector.key?(name)
           @lazy_injector[name]
         else
-          @lazy_injector[name] = block_given? ? yield : nil
+          @lazy_injector[name] = block and instance_eval(&block)
         end
       end
     end

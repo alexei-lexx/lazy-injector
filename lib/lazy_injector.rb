@@ -13,7 +13,7 @@ module LazyInjector
         if @lazy_injector.key?(name)
           @lazy_injector[name]
         else
-          @lazy_injector[name] = block and instance_eval(&block)
+          @lazy_injector[name] = block && instance_eval(&block)
         end
       end
     end

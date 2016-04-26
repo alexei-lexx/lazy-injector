@@ -41,6 +41,10 @@ describe LazyInjector do
           expect(OpenStruct).to receive(:new).once
           2.times { tester.my_database }
         end
+
+        it "doesn't change the dependency value" do
+          2.times { expect(tester.my_database.name).to eq 'my database' }
+        end
       end
     end
   end

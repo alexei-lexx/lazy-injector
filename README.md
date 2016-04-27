@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/alexei-lexx/lazy-injector.svg?branch=master)](https://travis-ci.org/alexei-lexx/lazy-injector)
+[![Code Climate](https://codeclimate.com/github/alexei-lexx/lazy-injector/badges/gpa.svg)](https://codeclimate.com/github/alexei-lexx/lazy-injector)
 
 # LazyInjector
 
